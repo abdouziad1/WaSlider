@@ -27,16 +27,23 @@ WAF.define('WaSlider', ['waf-core/widget'], function(widget) {
         init: function() {
         	this.render();
         	var $node = $(this.node);
-        	$node.val(this.value());
-
         	
-        	this.value.onChange(function(){
-				  $node.val(this.value());
-				  $node.val(this.min());
-				  $node.val(this.max());
-				  $node.val(this.step());
+        	$node.val(this.value());
+     	    $node.val(this.min());
+		    $node.val(this.max());
+		    $node.val(this.step());
 				  
-				  this.render();
+        	this.value.onChange(function(){
+				  $node.val(this.value());	  
+        	});
+        	this.min.onChange(function(){
+        		  $node.val(this.min());
+        	});
+        	this.max.onChange(function(){
+        		  $node.val(this.max());
+        	});
+        	this.step.onChange(function(){
+        		  $node.val(this.step());
         	});
 
         },
