@@ -25,36 +25,32 @@ WAF.define('WaSlider', ['waf-core/widget'], function(widget) {
         }),
 
         init: function() {
-        	this.render();
-        	var $node = $(this.node);
         	
-        	$node.val(this.value());
-     	    $node.val(this.min());
-		    $node.val(this.max());
-		    $node.val(this.step());
+        	this.render();
+        	var $node = $(this.node); // jQuery
 				  
         	this.value.onChange(function(){
 				  $node.val(this.value());	  
         	});
         	this.min.onChange(function(){
-        		  $node.val(this.min());
+        		  $node.attr('min', this.min()); 
         	});
         	this.max.onChange(function(){
-        		  $node.val(this.max());
+        		  $node.attr('max', this.max()); 
         	});
         	this.step.onChange(function(){
-        		  $node.val(this.step());
+        		  $node.attr('step', this.step()); 
         	});
-
         },
         
         render: function(){
+        	var $node = $(this.node);
+        	this.node.type = 'range'; //this.node.setAttribute("type","range");
         	
-        	this.node.setAttribute("type","range");
-			this.node.setAttribute("min",this.min());
-			this.node.setAttribute("max",this.max());
-			this.node.setAttribute("step",this.step());
-			this.node.setAttribute("value",this.value());
+        	$node.val(this.value());
+			$node.attr("min",this.min());
+			$node.attr("max",this.max());
+			$node.attr("step",this.step());
         }
         
     });
