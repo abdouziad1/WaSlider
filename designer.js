@@ -1,11 +1,13 @@
 (function(WaSlider) {
 
+    WaSlider.setWidth('130');
+    WaSlider.setHeight('22');
+
 //    /* Add a Label property */
     WaSlider.addLabel({
         'defaultValue': '',
-        'position': 'top'
+        'position': 'left'
     });
-
 
 });
 
